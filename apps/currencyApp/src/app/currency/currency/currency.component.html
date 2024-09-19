@@ -1,0 +1,42 @@
+<mat-card class="currency-card">
+  <mat-card-title class="card-title">Convert Currency</mat-card-title>
+  
+  <form>
+    <mat-form-field appearance="fill" class="amount-field">
+      <mat-label>Amount</mat-label>
+      <input matInput type="number" [(ngModel)]="amount" name="amount" required>
+    </mat-form-field>
+
+    <div class="currency-row">
+      <mat-form-field appearance="fill" class="currency-field">
+        <mat-label>From</mat-label>
+        <mat-select [(ngModel)]="fromCurrency" name="fromCurrency" required>
+          <mat-option *ngFor="let currency of currencies" [value]="currency.code">
+            {{ currency.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-icon-button (click)="interchangeCurrencies()" class="swap-button">
+        <mat-icon>swap_horiz</mat-icon>
+      </button>
+
+      <mat-form-field appearance="fill" class="currency-field">
+        <mat-label>To</mat-label>
+        <mat-select [(ngModel)]="toCurrency" name="toCurrency" required>
+          <mat-option *ngFor="let currency of currencies" [value]="currency.code">
+            {{ currency.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="primary" (click)="convert()" class="convert-button">
+      Convert
+    </button>
+
+    <div *ngIf="result !== null" class="result">
+      <h3>{{ amount }} {{ fromCurrency }} = {{ result }} {{ toCurrency }}</h3>
+    </div>
+  </form>
+</mat-card>

@@ -1,0 +1,58 @@
+.currency-card {
+  max-width: 500px;
+  margin: auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.card-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: #2b2d42;
+  margin-bottom: 30px;
+}
+
+.currency-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.currency-field {
+  width: 45%;
+}
+
+.amount-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.swap-button {
+  margin: 0 10px;
+}
+
+.convert-button {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: none;
+}
+
+.result {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 18px;
+  color: #2b2d42;
+}
+
+body {
+  background-color: #f0f4f8; /* Color de fondo claro */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
