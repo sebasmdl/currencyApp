@@ -1,31 +1,31 @@
 {
-  "name": "currencyApp",
+  "name": "auth",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
-  "sourceRoot": "apps/currencyApp/src",
+  "sourceRoot": "apps/auth/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@nx/angular:webpack-browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/currencyApp",
-        "index": "apps/currencyApp/src/index.html",
-        "main": "apps/currencyApp/src/main.ts",
+        "outputPath": "dist/apps/auth",
+        "index": "apps/auth/src/index.html",
+        "main": "apps/auth/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/currencyApp/tsconfig.app.json",
+        "tsConfig": "apps/auth/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/currencyApp/public"
+            "input": "apps/auth/public"
           }
         ],
-        "styles": ["apps/currencyApp/src/styles.scss"],
+        "styles": ["apps/auth/src/styles.scss"],
         "scripts": [],
         "customWebpackConfig": {
-          "path": "apps/currencyApp/webpack.config.ts"
+          "path": "apps/auth/webpack.config.ts"
         }
       },
       "configurations": {
@@ -44,7 +44,7 @@
           ],
           "outputHashing": "all",
           "customWebpackConfig": {
-            "path": "apps/currencyApp/webpack.prod.config.ts"
+            "path": "apps/auth/webpack.prod.config.ts"
           }
         },
         "development": {
@@ -59,17 +59,17 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@nx/angular:module-federation-dev-server",
+      "executor": "@nx/angular:dev-server",
       "options": {
-        "port": 4200,
-        "publicHost": "http://localhost:4200"
+        "port": 4201,
+        "publicHost": "http://localhost:4201"
       },
       "configurations": {
         "production": {
-          "buildTarget": "currencyApp:build:production"
+          "buildTarget": "auth:build:production"
         },
         "development": {
-          "buildTarget": "currencyApp:build:development"
+          "buildTarget": "auth:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -77,7 +77,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "currencyApp:build"
+        "buildTarget": "auth:build"
       }
     },
     "lint": {
@@ -87,15 +87,24 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/currencyApp/jest.config.ts"
+        "jestConfig": "apps/auth/jest.config.ts"
       }
     },
     "serve-static": {
       "executor": "@nx/web:file-server",
+      "defaultConfiguration": "production",
       "options": {
-        "buildTarget": "currencyApp:build",
-        "port": 4200,
-        "spa": true
+        "buildTarget": "auth:build",
+        "port": 4201,
+        "watch": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "auth:build:development"
+        },
+        "production": {
+          "buildTarget": "auth:build:production"
+        }
       }
     }
   }
