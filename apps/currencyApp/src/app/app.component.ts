@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'currencyApp';
+  conversionHistory: Array<{ fromCurrency: string, toCurrency: string, amount: number, result: number }> = [];
+
+  updateConversionHistory(conversion: { fromCurrency: string, toCurrency: string, amount: number, result: number }) {
+    this.conversionHistory.push(conversion);
+  }
 }

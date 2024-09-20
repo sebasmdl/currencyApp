@@ -1,31 +1,27 @@
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import { CurrencyFormComponent } from './currency-form.component';
 import { Router, RouterModule } from '@angular/router';
+import { AppComponent } from '../../app.component';
 
-describe('AppComponent', () => {
+describe('CurrencyFormComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterModule.forRoot([{ path: '', component: AppComponent }]),
-        AppComponent,
+        CurrencyFormComponent,
       ],
     }).compileComponents();
   });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(CurrencyFormComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'currencyApp'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('currencyApp');
-  });
 
   it('should render title', fakeAsync(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(CurrencyFormComponent);
     const router = TestBed.inject(Router);
     fixture.ngZone?.run(() => router.navigate(['']));
     tick();

@@ -3,24 +3,23 @@ import { CurrencyModule } from './currency/currency.module';
 import { AppComponent } from './app.component';
 import { Route, RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { AppRoutingModule } from './app.routing.module';
+import { HomeModule } from './home/home.module';
 
-const appRoutes: Route[] = [
-  {
-    path: 'auth',
-    loadChildren: () => import('auth/Routes').then((m) => m.remoteRoutes),
-  },
-  {
-    path: 'currency',
-    loadChildren: () => import('./currency/currency.module').then((m) => m.CurrencyModule),
-  },
-];
+const matImportsNavBar = [MatSidenavModule, MatListModule, ]
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
     CurrencyModule,
-    RouterModule.forRoot(appRoutes)
+    HomeModule,
+    ...matImportsNavBar,
   ],
   providers: [],
   bootstrap: [AppComponent],
