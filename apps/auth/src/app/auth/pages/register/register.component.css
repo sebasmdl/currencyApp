@@ -1,0 +1,21 @@
+.d-flex {
+    display: flex;
+}
+
+.login-box {
+    max-width: 400px; /* Limita el ancho del formulario */
+    width: 100%; /* Asegura que ocupe el 100% en dispositivos pequeños */
+}
+
+.login-card {
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+}
+
+.mat-form-field {
+    width: 100%;
+}
+
+.mat-card-title {
+    margin-bottom: 20px;
+}

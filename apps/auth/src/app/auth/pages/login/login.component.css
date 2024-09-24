@@ -1,0 +1,21 @@
+.d-flex {
+    display: flex;
+}
+
+.flex-class {
+    width: 100%;
+}
+
+.login-box {
+    width: 900px; /* Limita el ancho del formulario */
+    width: 100%; /* Asegura que ocupe el 100% en dispositivos pequeños */
+}
+
+.login-card {
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.mat-form-field {
+    width: 100%;
+}

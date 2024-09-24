@@ -1,0 +1,41 @@
+<mat-card class="currency-card">
+  <mat-card-title class="card-title">Recipient Details</mat-card-title>
+  
+  <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill" class="currency-field">
+      <mat-label>Recipient Name</mat-label>
+      <input matInput formControlName="name" required>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill" class="currency-field">
+      <mat-label>Recipient Last Name</mat-label>
+      <input matInput formControlName="lastname" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="currency-field">
+      <mat-label>Recipient Email</mat-label>
+      <input matInput formControlName="email" type="email" required>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill" class="currency-field">
+      <mat-label>Credit Card Number</mat-label>
+      <input matInput formControlName="creditCard" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="amount-field">
+      <mat-label>Choose your bank account</mat-label>
+      <mat-select formControlName="selectedBank" required>
+        <mat-option *ngFor="let bank of banks" [value]="bank.code">
+          <span class="bank-icon">🏦</span> <!-- You can use an icon here or keep it as text -->
+          {{ bank.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    
+    <button mat-raised-button color="primary" type="submit" class="convert-button">
+      Send Money
+    </button>
+  </form>
+
+</mat-card>

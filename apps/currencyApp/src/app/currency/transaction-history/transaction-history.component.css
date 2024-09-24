@@ -1,0 +1,24 @@
+.transaction-container {
+  width: 800px; /* Adjust width as needed */
+  margin: 20px auto; /* Center the container */
+}
+
+.transaction-card {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.transaction-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #1976d2;
+  padding: 16px; /* Space above the title */
+  margin: 0; /* Remove default margin */
+}
+
+.no-transactions-message {
+  display: block;
+  padding: 16px;
+  text-align: center;
+  color: #666; /* Grey color for the message */
+}

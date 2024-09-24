@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "auth/Routes": ["apps/auth/src/app/remote-entry/entry.routes.ts"]
+      "auth/Routes": ["apps/auth/src/app/remote-entry/entry.routes.ts"],
+      "auth/AuthModule": ["apps/auth/src/app/auth/auth.module.ts"],
+      "auth/Guard": ["apps/auth/src/app/auth/guards/auth.guards.ts"],
     }
   },
   "exclude": ["node_modules", "tmp"]

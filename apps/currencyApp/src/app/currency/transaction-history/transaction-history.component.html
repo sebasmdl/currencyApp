@@ -1,0 +1,13 @@
+<div class="transaction-container">
+  <mat-card class="transaction-card">
+    <mat-card-title class="transaction-title">Transaction History</mat-card-title>
+    <mat-card-content>
+      <ng-container *ngIf="transactions.length > 0; else notTransactions">
+        <app-transaction-item *ngFor="let transaction of transactions" [conversionHistory]="transaction"></app-transaction-item>
+      </ng-container>
+      <ng-template #notTransactions>
+        <span class="no-transactions-message">No transactions available</span>
+      </ng-template>
+    </mat-card-content>
+  </mat-card>
+</div>

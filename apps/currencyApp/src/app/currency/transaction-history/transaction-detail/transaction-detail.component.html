@@ -1,0 +1,60 @@
+<mat-card class="transaction-card">
+    <mat-card-title class="transaction-title">Transaction Details</mat-card-title>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>
+          <strong>Recipient:</strong> {{ transaction?.recipientName }} {{ transaction?.recipientLastName }}
+        </mat-list-item>
+        <mat-list-item>
+          <strong>Email:</strong> {{ transaction?.recipientEmail }}
+        </mat-list-item>
+        <mat-list-item>
+          <strong>Credit Card Number:</strong> {{ transaction?.creditCardNumber }}
+        </mat-list-item>
+        <mat-list-item>
+          <strong>Bank:</strong> {{ transaction?.selectedBank }}
+        </mat-list-item>
+        <mat-list-item>
+          <strong>Date:</strong> {{ transaction?.date }}
+        </mat-list-item>
+        <mat-list-item>
+          <strong>Amount:</strong> ${{ transaction?.amount }}
+        </mat-list-item>
+        <mat-list-item>
+          <strong>Converted Amount:</strong> {{ transaction?.convertedAmount | number: '1.2-2' }}
+        </mat-list-item>
+        <mat-list-item>
+          <strong>Status:</strong> <span [ngClass]="transaction?.status">{{ transaction?.status }}</span>
+        </mat-list-item>
+      </mat-list>
+  
+      <mat-table [dataSource]="transaction?.currencies || []" class="mat-elevation-z8">
+        <ng-container matColumnDef="country">
+          <mat-header-cell *matHeaderCellDef> Country </mat-header-cell>
+          <mat-cell *matCellDef="let currency"> {{ currency.countryName }} </mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="code">
+          <mat-header-cell *matHeaderCellDef> Currency Code </mat-header-cell>
+          <mat-cell *matCellDef="let currency"> {{ currency.code }} </mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="rate">
+          <mat-header-cell *matHeaderCellDef> Exchange Rate </mat-header-cell>
+          <mat-cell *matCellDef="let currency"> {{ currency.rate | number: '1.6-6' }} </mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="symbol">
+          <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+          <mat-cell *matCellDef="let currency"> {{ currency.symbol }} </mat-cell>
+        </ng-container>
+  
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary" (click)="editTransaction(transaction?.id || 0)">Edit Transaction</button>
+      <button mat-button color="warn" routerLink="/transactions">Back</button>
+    </mat-card-actions>
+</mat-card>

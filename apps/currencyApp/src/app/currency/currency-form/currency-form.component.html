@@ -1,42 +1,49 @@
 <mat-card class="currency-card">
-  <mat-card-title class="card-title">Convert Currency</mat-card-title>
+  <mat-card-title class="card-title">CurrencyExchangePro</mat-card-title>
   
-  <form>
+  <form [formGroup]="currencyForm">
     <mat-form-field appearance="fill" class="amount-field">
       <mat-label>Amount</mat-label>
-      <input matInput type="number" [(ngModel)]="amount" name="amount" required>
+      <input matInput [currencyMask]="{ prefix: '$ ', thousands: '.', decimal: ',' }" formControlName="amount" required>
     </mat-form-field>
 
     <div class="currency-row">
       <mat-form-field appearance="fill" class="currency-field">
         <mat-label>From</mat-label>
-        <mat-select [(ngModel)]="fromCurrency" name="fromCurrency" required>
-          <mat-option *ngFor="let currency of currencies" [value]="currency.code">
-            {{ currency.name }}
+        <mat-select formControlName="fromCurrency" required>
+          <mat-option *ngFor="let currency of currencies" [value]="currency">
+            <span class="currency-flag currency-flag-{{ (currency.code || '').toLowerCase() }}"></span>
+            {{ currency.countryName }}
           </mat-option>
         </mat-select>
       </mat-form-field>
 
-      <button mat-icon-button (click)="interchangeCurrencies()" class="swap-button">
+      <button mat-icon-button  class="swap-button">
         <mat-icon>swap_horiz</mat-icon>
       </button>
 
       <mat-form-field appearance="fill" class="currency-field">
         <mat-label>To</mat-label>
-        <mat-select [(ngModel)]="toCurrency" name="toCurrency" required>
-          <mat-option *ngFor="let currency of currencies" [value]="currency.code">
-            {{ currency.name }}
+        <mat-select formControlName="toCurrency" required>
+          <mat-option *ngFor="let currency of currencies" [value]="currency">
+            <span class="currency-flag currency-flag-{{ (currency.code || '').toLowerCase() }}"></span>
+            {{ currency.countryName }}
           </mat-option>
         </mat-select>
       </mat-form-field>
     </div>
 
-    <button mat-raised-button color="primary" (click)="convert()" class="convert-button">
+    <button mat-raised-button color="primary" class="convert-button" (click)="exchange()" *ngIf="conversionUpdated">
       Convert
     </button>
 
-    <div *ngIf="result !== null" class="result">
-      <h3>{{ amount }} {{ fromCurrency }} = {{ result }} {{ toCurrency }}</h3>
+   <div *ngIf="hasEmitted">
+      <h3>
+        {{ resultFrom}} {{resultTo }}
+      </h3> 
+      <span>{{ rateInfoFrom }}</span> <br>
+      <span>{{ rateInfoTo }}</span> <br>
+
     </div>
   </form>
 </mat-card>

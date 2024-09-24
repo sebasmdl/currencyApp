@@ -1,0 +1,23 @@
+.form-container {
+    display: flex;
+    justify-content: space-between; /* Space between the two forms */
+    align-items: flex-start; /* Align items at the start of the flex container */
+    max-width: 1200px; /* Set a max width for the container */
+    margin: auto; /* Center the container */
+    padding: 20px; /* Add some padding around the container */
+  }
+  
+  .form-item {
+    flex: 1; /* Allow items to grow equally */
+    margin: 10px; /* Space between forms */
+  }
+  
+  @media (max-width: 768px) {
+    .form-container {
+        flex-direction: column; /* Stack forms vertically on small screens */
+      }
+    
+      .form-item {
+        margin: 10px 0; /* Vertical margin between stacked forms */
+      }
+  }

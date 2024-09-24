@@ -1,0 +1,4 @@
+<div class="form-container">
+    <app-currency-form class="form-item" (conversionUpdated)="onConversionUpdated($event)"></app-currency-form>
+    <app-transaction-form class="form-item" [currencyFormInput]="partialTransaction" *ngIf="isTransferFormVisible"></app-transaction-form>
+</div>

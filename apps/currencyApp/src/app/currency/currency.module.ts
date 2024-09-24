@@ -1,26 +1,46 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
-import { CurrencyFormComponent } from './currency-form/currency-form.component';
+import { NgxCurrencyDirective } from "ngx-currency";
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule  } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatChipsModule } from '@angular/material/chips';
 
 import { MatSidenavModule } from '@angular/material/sidenav' 
 import { MatListModule  } from '@angular/material/list' 
-import { conversionHistoryComponent } from './conversionHistory/conversion-history.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
 import { Route, RouterModule } from '@angular/router';
+import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
+import { CurrencyComponent } from './currency.component';
+import { CurrencyFormComponent } from './currency-form/currency-form.component';
+import { TransactionItemComponent } from './transaction-history/transaction-item/transaction-item.component';
 
-const matImports = [MatFormFieldModule, MatInputModule, MatSelectModule, MatButtonModule, MatIconModule, MatCardModule ]
-const matImportsCHistory = [MatSidenavModule, MatListModule, MatToolbarModule, MatTableModule  ]
-const components = [CurrencyFormComponent, conversionHistoryComponent]
+
+import { ToastrModule } from 'ngx-toastr';
+import { TransactionFormComponent } from './transfer-form/transaction-form.component';
+import { TransactionDetailComponent } from './transaction-history/transaction-detail/transaction-detail.component';
+
+const matImports = [
+  MatFormFieldModule, MatInputModule, MatSelectModule, MatButtonModule,
+  MatIconModule, MatCardModule, MatSidenavModule, MatListModule,
+  MatToolbarModule, MatTableModule, MatChipsModule, MatDialogModule   ]
+
+const components = [
+  CurrencyComponent,
+  CurrencyFormComponent,
+  TransactionFormComponent,
+  TransactionHistoryComponent,
+  TransactionItemComponent,
+  TransactionDetailComponent ]
 
 
 const routes: Route[] = [
@@ -31,8 +51,18 @@ const routes: Route[] = [
   },
   {
       path: 'converter',
-      component: CurrencyFormComponent
-  }
+      component: CurrencyComponent
+  },
+  {
+    path: 'transactions',
+    component: TransactionHistoryComponent
+  },
+  { 
+    path: 'transactions/:id', component: TransactionDetailComponent
+   },
+  { 
+    path: 'transactions-edit/:id', component: CurrencyComponent
+   }
 ]
 
 
@@ -40,11 +70,13 @@ const routes: Route[] = [
   declarations: components,
   imports: [
     CommonModule,
-    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    RouterModule.forChild(routes),
+    ToastrModule.forRoot(),
+    NgxCurrencyDirective,
     ...matImports,
-    ...matImportsCHistory,
-    RouterModule.forChild(routes)
   ],
-  exports: components
+  exports: components,
 })
 export class CurrencyModule { }

@@ -3,8 +3,9 @@
       <mat-icon>menu</mat-icon>
   </button>
   <a mat-button routerLink="/currency" class="top-menu-item"><mat-icon>home</mat-icon>Home</a>
-  <a mat-button routerLink="/auth" class="top-menu-item"><mat-icon>people</mat-icon>Login</a>
-  <a mat-button routerLink="/auth" class="top-menu-item"><mat-icon>person_add</mat-icon>Register</a>
+  <a mat-button routerLink="/transactions" class="top-menu-item"><mat-icon>bank</mat-icon>Transactions</a>
+  <a mat-button routerLink="/auth/login" class="top-menu-item"><mat-icon>people</mat-icon>Login</a>
+  <a mat-button routerLink="/auth/register" class="top-menu-item"><mat-icon>person_add</mat-icon>Register</a>
 </mat-toolbar>
 
 <mat-sidenav-container>
@@ -13,6 +14,11 @@
           <div>
               <a (click)="sidenav.close()" mat-button routerLink="/"
                   class="side-menu-item"><mat-icon>home</mat-icon>Home</a>
+          </div>
+
+          <div>
+              <a (click)="sidenav.close()" mat-button routerLink="/transactions"
+                  class="side-menu-item"><mat-icon>bank</mat-icon>Transactions</a>
           </div>
 
           <div>

@@ -1,0 +1,20 @@
+<mat-card class="transaction-card">
+    <div class="transaction-info">
+      <!-- Información a la izquierda -->
+      <div class="left-info">
+        <p><strong>Date:</strong> {{ conversionHistory.date }}</p>
+        <p><strong>Converted Amount:</strong> {{ conversionHistory.convertedAmount | currency }}</p>
+      </div>
+  
+      <!-- Información a la derecha -->
+      <div class="right-info">
+        <p><strong>Recipient:</strong> {{ conversionHistory.recipientName }}</p>
+        <p><strong>Status:</strong> {{ conversionHistory.status }}</p>
+      </div>
+      <div class="transaction-actions">
+        <button (click)="detailTransaction(conversionHistory.id)">Details</button>
+        <button (click)="deleteTransaction(conversionHistory)">Eliminar</button>
+      </div>
+    </div>
+  </mat-card>
+  

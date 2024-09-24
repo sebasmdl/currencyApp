@@ -1,0 +1,53 @@
+.transaction-card {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    margin: 10px 0;
+  }
+  
+  .transaction-info {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .left-info,
+  .right-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .left-info p,
+  .right-info p {
+    margin: 4px 0;
+  }
+  .transaction-actions {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .transaction-actions button {
+    margin-bottom: 5px;
+  }
+  
+  button {
+    margin-right: 10px;
+    padding: 8px 16px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  button:nth-child(2) {
+    background-color: #dc3545;
+  }
+  
+  button:nth-child(2):hover {
+    background-color: #c82333;
+  }

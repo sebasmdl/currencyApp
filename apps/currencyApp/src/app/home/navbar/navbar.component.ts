@@ -1,5 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { AuthService } from '../../services/auth/auth.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -9,4 +11,9 @@ import { RouterModule } from '@angular/router';
 })
 
 export class NavbarComponent {
+  constructor(public authService: AuthService){
+  }
+  logout(){
+    this.authService.logout();
+  }
 }
