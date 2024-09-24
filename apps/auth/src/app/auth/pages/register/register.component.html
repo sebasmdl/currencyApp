@@ -1,10 +1,9 @@
 <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
 
-    <form class="login-box" [formGroup]="registerForm" (ngSubmit)="register()">
+    <form  [formGroup]="registerForm" (ngSubmit)="register()">
         <mat-card class="p-4 login-card">
             <mat-card-title class="text-center">
                 <h2>Create Account</h2>
-                <p>Join us and manage your contacts!</p>
             </mat-card-title>
             <mat-form-field appearance="fill" class="w-100 mb-3">
                 <mat-label>Username</mat-label>

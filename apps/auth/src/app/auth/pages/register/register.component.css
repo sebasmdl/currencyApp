@@ -1,21 +1,32 @@
 .d-flex {
     display: flex;
+    margin-top: 50px;
 }
 
 .login-box {
-    max-width: 400px; /* Limita el ancho del formulario */
-    width: 100%; /* Asegura que ocupe el 100% en dispositivos pequeños */
+    width: 100%;
+    max-width: 400px; /* Limit the max width for better appearance */
+    margin: auto; /* Center the form horizontally */
 }
 
 .login-card {
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    padding: 20px; /* Add padding inside the card */
 }
 
 .mat-form-field {
-    width: 100%;
+    width: 100%; /* Ensure form fields take full width */
 }
 
-.mat-card-title {
-    margin-bottom: 20px;
+.text-center {
+    text-align: center; /* Center text */
+}
+
+.mb-3 {
+    margin-bottom: 16px; /* Bottom margin for spacing */
+}
+
+.mt-3 {
+    margin-top: 16px; /* Top margin for spacing */
 }
